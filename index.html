@@ -92,24 +92,6 @@ p {
 }
 .downloads img:hover { transform: scale(1.1); }
 
-/* Gallery */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-  gap:20px;
-  max-width:1200px;
-  margin:50px auto;
-}
-.gallery img {
-  display:block;
-  width:100%;
-  border:3px solid #ff2a2a;
-  border-radius:10px;
-  box-shadow:0 0 20px black;
-  transition: transform 0.3s ease;
-}
-.gallery img:hover { transform: scale(1.05); }
-
 /* Footer */
 footer {
   background:black;
@@ -154,7 +136,7 @@ footer {
 </video>
 
 <!-- Background wind sound -->
-<audio id="wind" src="spooky-wind.mp3" autoplay loop></audio>
+<audio id="wind" src="spooky-wind.mp3" loop></audio>
 
 <!-- Jump-scare overlay -->
 <div id="jumpscare">
@@ -196,20 +178,6 @@ Few survive their first night with their sanity intact.
 <strong>Charlie</strong>: Analyst of the abyss, ensuring every terror lands deeper than the last.
 </p>
 
-<h2>CREEPY GALLERY</h2>
-<div class="gallery">
-  <img src="https://dummyimage.com/400x250/000/ff0000&text=Cursed+1" alt="Cursed 1">
-  <img src="https://dummyimage.com/400x250/111/ff0000&text=Cursed+2" alt="Cursed 2">
-  <img src="https://dummyimage.com/400x250/222/ff0000&text=Cursed+3" alt="Cursed 3">
-  <img src="https://dummyimage.com/400x250/333/ff0000&text=Cursed+4" alt="Cursed 4">
-  <img src="https://dummyimage.com/400x250/444/ff0000&text=Cursed+5" alt="Cursed 5">
-  <img src="https://dummyimage.com/400x250/555/ff0000&text=Cursed+6" alt="Cursed 6">
-  <img src="https://dummyimage.com/400x250/666/ff0000&text=Cursed+7" alt="Cursed 7">
-  <img src="https://dummyimage.com/400x250/777/ff0000&text=Cursed+8" alt="Cursed 8">
-  <img src="https://dummyimage.com/400x250/888/ff0000&text=Cursed+9" alt="Cursed 9">
-  <img src="https://dummyimage.com/400x250/999/ff0000&text=Cursed+10" alt="Cursed 10">
-</div>
-
 <h2>WHAT PLAYERS SAY</h2>
 <p>
 “I felt like the game knew me…” — anonymous player <br>
@@ -235,23 +203,29 @@ const enterBtn = document.getElementById("enter-btn");
 const jumpscareDiv = document.getElementById("jumpscare");
 const wind = document.getElementById("wind");
 
-// Set subtle volume for wind
-wind.volume = 0.2;
-
-// Enter button
+// Enter button: hide intro and start wind audio
 enterBtn.addEventListener("click", () => {
   intro.style.opacity = "0";
-  setTimeout(()=>intro.style.display="none",2000);
+  setTimeout(() => intro.style.display = "none", 2000);
+
+  wind.volume = 0.2;
+  wind.play().catch(() => console.log("Autoplay prevented"));
 });
 
-// Random visual jump-scare every 25-45 seconds
-function triggerJumpScare(){
-  jumpscareDiv.style.display="flex";
-  setTimeout(()=>jumpscareDiv.style.display="none",1500);
-  setTimeout(triggerJumpScare, Math.random()*20000 + 25000);
+// Jump-scare function
+function triggerJumpScare() {
+  jumpscareDiv.style.display = "flex";
+  setTimeout(() => {
+    jumpscareDiv.style.display = "none";
+  }, 1500);
 }
-setTimeout(triggerJumpScare, Math.random()*20000 + 25000);
+
+// Trigger jump scare every 30–45 seconds randomly
+setInterval(() => {
+  triggerJumpScare();
+}, Math.floor(Math.random() * 15000) + 30000);
 </script>
 
 </body>
 </html>
+
