@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X STUDIOS - The Echo of the Dusk</title>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Creepster', cursive;
+  background: black;
+  color: #eee;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Background video */
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.3);
+}
+
+/* Headings */
+h1, h2 {
+  text-shadow: 0 0 10px black, 0 0 20px #ff2a2a;
+  animation: flicker 2s infinite alternate;
+  margin-top: 40px;
+  color: #ff2a2a;
+}
+h1 { font-size: clamp(2rem, 8vw, 4em); }
+h2 { font-size: clamp(1.5rem, 5vw, 2.5em); }
+
+p {
+  font-size: 1.2em;
+  max-width: 900px;
+  margin: 20px auto;
+  line-height: 1.8;
+  text-shadow: 0 0 5px black;
+  color: #ddd;
+}
+
+@keyframes flicker {
+  0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
+  20%,22%,24%,55% { opacity: 0.3; }
+}
+
+/* Intro overlay */
+#intro {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:black;
+  color:#ff2a2a;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  transition: opacity 2s ease;
+}
+#intro h1 { font-size:3em; margin-bottom:20px; }
+#enter-btn {
+  padding:15px 40px;
+  font-size:1.5em;
+  border:2px solid #ff2a2a;
+  background: transparent;
+  color:#ff2a2a;
+  cursor:pointer;
+  text-shadow:0 0 10px #ff2a2a;
+  transition: all 0.3s ease;
+}
+#enter-btn:hover { background: #ff2a2a; color:black; }
+
+/* Downloads */
+.downloads {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.downloads img {
+  display:block;
+  width:220px;
+  height:auto;
+  transition: transform 0.3s ease;
+}
+.downloads img:hover { transform: scale(1.1); }
+
+/* Gallery */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:50px auto;
+}
+.gallery img {
+  display:block;
+  width:100%;
+  border:3px solid #ff2a2a;
+  border-radius:10px;
+  box-shadow:0 0 20px black;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover { transform: scale(1.05); }
+
+/* Footer */
+footer {
+  background:black;
+  padding:40px 20px;
+  color:#eee;
+  font-size:1.2em;
+}
+
+/* Jump-scare overlay */
+#jumpscare {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.95);
+  z-index:10000;
+  justify-content:center;
+  align-items:center;
+}
+#jumpscare img {
+  max-width:90%;
+  max-height:90%;
+  border:5px solid #ff2a2a;
+  border-radius:10px;
+  box-shadow:0 0 50px #ff2a2a;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Intro -->
+<div id="intro">
+  <h1>ENTER THE DARKNESS</h1>
+  <button id="enter-btn">Enter</button>
+</div>
+
+<!-- Background video -->
+<video autoplay muted loop id="bg-video">
+  <source src="backgroundnew.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Background wind sound -->
+<audio id="wind" src="spooky-wind.mp3" autoplay loop></audio>
+
+<!-- Jump-scare overlay -->
+<div id="jumpscare">
+  <img src="https://i.ibb.co/8c4VfX7/scary-face.png" alt="Jump Scare">
+</div>
+
+<!-- Content -->
+<h1>X STUDIOS</h1>
+<h2>MASTERMINDPLAYZ • POWERXGOD • SHREYAK</h2>
+
+<p>
+X STUDIOS thrives in shadows. Three developers—Alpha, Bravo & Delta—and analyst Charlie,  
+conspire in silence, crafting horrors that follow players into the night.  
+Join our Discord… if you dare.
+</p>
+
+<h2>THE STORY</h2>
+<p>
+The <strong>Echo of the Dusk</strong> is no ordinary game.  
+Screens flicker, shadows move, and whispers echo when you least expect.  
+Those who played it swear they felt eyes watching,  
+but we will not reveal all. The darkness must remain…  
+until you enter.
+</p>
+
+<h2>THE CURSE</h2>
+<p>
+Legends say that our code is alive. Every line pulses with unseen dread.  
+Players who stare too long report strange figures appearing in reflections,  
+disembodied whispers from empty rooms, and shadows creeping across walls.  
+Few survive their first night with their sanity intact.
+</p>
+
+<h2>ABOUT THE DEVELOPERS</h2>
+<p>
+<strong>Alpha</strong>: Architect of nightmares, he scripts fear into every line of code. <br>
+<strong>Bravo</strong>: Weaver of illusions, shaping worlds where reality shivers. <br>
+<strong>Delta</strong>: Keeper of balance, orchestrating silence and dread. <br>
+<strong>Charlie</strong>: Analyst of the abyss, ensuring every terror lands deeper than the last.
+</p>
+
+<h2>CREEPY GALLERY</h2>
+<div class="gallery">
+  <img src="https://dummyimage.com/400x250/000/ff0000&text=Cursed+1" alt="Cursed 1">
+  <img src="https://dummyimage.com/400x250/111/ff0000&text=Cursed+2" alt="Cursed 2">
+  <img src="https://dummyimage.com/400x250/222/ff0000&text=Cursed+3" alt="Cursed 3">
+  <img src="https://dummyimage.com/400x250/333/ff0000&text=Cursed+4" alt="Cursed 4">
+  <img src="https://dummyimage.com/400x250/444/ff0000&text=Cursed+5" alt="Cursed 5">
+  <img src="https://dummyimage.com/400x250/555/ff0000&text=Cursed+6" alt="Cursed 6">
+  <img src="https://dummyimage.com/400x250/666/ff0000&text=Cursed+7" alt="Cursed 7">
+  <img src="https://dummyimage.com/400x250/777/ff0000&text=Cursed+8" alt="Cursed 8">
+  <img src="https://dummyimage.com/400x250/888/ff0000&text=Cursed+9" alt="Cursed 9">
+  <img src="https://dummyimage.com/400x250/999/ff0000&text=Cursed+10" alt="Cursed 10">
+</div>
+
+<h2>WHAT PLAYERS SAY</h2>
+<p>
+“I felt like the game knew me…” — anonymous player <br>
+“Shadows followed me home. I can’t turn off my lights.” <br>
+“Every sound in my room echoed the game’s whispers.”  
+The Echo of the Dusk leaves an imprint, an aftertaste of terror few can forget.
+</p>
+
+<h2>The Echo of the Dusk is available on:</h2>
+<div class="downloads">
+  <a href="#"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Play Store"></a>
+  <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+  <a href="#"><img src="https://dummyimage.com/200x80/000/fff&text=Visit+Our+Website" alt="Website"></a>
+</div>
+
+<footer>
+  © 2025 X STUDIOS — Echoing from the darkness...
+</footer>
+
+<script>
+const intro = document.getElementById("intro");
+const enterBtn = document.getElementById("enter-btn");
+const jumpscareDiv = document.getElementById("jumpscare");
+const wind = document.getElementById("wind");
+
+// Set subtle volume for wind
+wind.volume = 0.2;
+
+// Enter button
+enterBtn.addEventListener("click", () => {
+  intro.style.opacity = "0";
+  setTimeout(()=>intro.style.display="none",2000);
+});
+
+// Random visual jump-scare every 25-45 seconds
+function triggerJumpScare(){
+  jumpscareDiv.style.display="flex";
+  setTimeout(()=>jumpscareDiv.style.display="none",1500);
+  setTimeout(triggerJumpScare, Math.random()*20000 + 25000);
+}
+setTimeout(triggerJumpScare, Math.random()*20000 + 25000);
+</script>
+
+</body>
+</html>
